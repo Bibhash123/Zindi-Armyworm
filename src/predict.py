@@ -7,10 +7,11 @@ import cv2
 import numpy as np
 import requests
 import pandas as pd
+import zipfile
 import tensorflow as tf
 import tensorflow.keras.layers as L
 import tensorflow.keras.backend as K
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 import tensorflow_hub as hub
 
 def seedAll(seed):
@@ -44,7 +45,7 @@ zindi_data_downloader(url,token,"Train.csv")
 zindi_data_downloader(url,token,"Test.csv")
 zindi_data_downloader(url,token,"SampleSubmission.csv")
 zindi_data_downloader(url,token,"Images.zip")
-!unzip -q "Images.zip" -d "./data"
+zipfile.ZipFile('Images.zip','r').extractall("./data")
 
 IMG_SIZE = 224
 BATCH_SIZE = 16
@@ -290,7 +291,7 @@ for fold in tqdm(range(5)):
   pred += model.predict(tst_segment)/10
 
 
-ss = pd.read_csv("./data/SampleSubmission.csv")
+ss = pd.read_csv("./SampleSubmission.csv")
 ss.iloc[:,1] = pred
 
 ss.to_csv("./submission.csv", index = False)
