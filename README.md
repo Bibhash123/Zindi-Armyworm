@@ -1,8 +1,8 @@
 # Project Name
 
-Platform:  <br>
-Organizers:  <br>
-Competition Page: 
+Platform:  **ZINDI**<br>
+Organizers: **Makerere AI Lab** <br>
+Competition Page: [click here](https://zindi.africa/competitions/makerere-fall-armyworm-crop-challenge)
 
 ## Instructions to Obtain Predictions
 - Clone this repository to your runtime and change the working directory to ```./src```
@@ -10,7 +10,7 @@ Competition Page:
 - Run the scrip predict.py using ```python predict.py```
 - The predictions file will be saved as ```submission.csv```
 
-## About
+## About the Solution
 
 ## Dataset Overview
 
